@@ -5,9 +5,9 @@ use soroban_sdk::{contract, contractimpl, contracttype, symbol_short, Env, Strin
 #[contracttype]
 #[derive(Clone, Debug)]
 pub struct Note {
-    id: u64,
-    title: String,
-    content: String,
+    pub id: u64,
+    pub title: String,
+    pub content: String,
 }
 
 // Storage key untuk data notes
@@ -30,6 +30,7 @@ impl NotesContract {
         let mut notes: Vec<Note> = env.storage().instance().get(&NOTE_DATA).unwrap_or(Vec::new(&env));
 
         // 2. Buat object note baru
+        let id = env.prng().gen::<u64>();
         let note = Note {
             id: env.prng().gen::<u64>(),
             title: title,
@@ -41,7 +42,7 @@ impl NotesContract {
 
         // 4. simpan notes ke storage
         env.storage().instance().set(&NOTE_DATA, &notes);
-
+        id;
         return String::from_str(&env, "Notes berhasil ditambahkan");
     }
 
@@ -61,6 +62,28 @@ impl NotesContract {
         }
         
         return String::from_str(&env, "Notes tidak ditemukan")
+    }
+
+    // 3. UPDATE: Fungsi untuk memperbarui note berdasarkan id
+    pub fn update_note(env: Env, id: u64, new_title: String, new_content: String) -> String {
+        let mut notes: Vec<Note> = env.storage().instance().get(&NOTE_DATA).unwrap_or(Vec::new(&env));
+
+        // Cari index note yang akan diupdate
+        for i in 0..notes.len() {
+            let mut note = notes.get(i).unwrap();
+            if note.id == id {
+                note.title = new_title;
+                note.content = new_content;
+                
+                // Simpan perubahan ke index yang sama di dalam Vec
+                notes.set(i, note);
+                
+                env.storage().instance().set(&NOTE_DATA, &notes);
+                return String::from_str(&env, "Notes berhasil diperbarui");
+            }
+        }
+        
+        String::from_str(&env, "Notes tidak ditemukan")
     }
 }
 
