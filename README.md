@@ -47,7 +47,7 @@ http://googleusercontent.com/immersive_entry_chip/0
 http://googleusercontent.com/immersive_entry_chip/1
 http://googleusercontent.com/immersive_entry_chip/2
 
-### Panduan Tambahan:
-1.  [cite_start]**Folder Gambar:** Buatlah folder bernama `screenshots` di repositori GitHub Anda. [cite: 80]
-2.  [cite_start]**Unggah Screenshot:** Masukkan file gambar yang Anda miliki (misalnya `Screenshot 2026-04-16 130535.png`) ke dalam folder tersebut dan pastikan namanya sesuai dengan yang tertulis di file `README.md` di atas. [cite: 80]
-3.  [cite_start]**Identitas Akun:** Jangan lupa untuk mengganti `YOUR_ACCOUNT_NAME` dengan nama identitas lokal Anda (seperti `release` atau `indramahesa`) saat menjalankan perintah terminal. [cite: 81]
+### Additional Guide:
+1.  [cite_start]**Image Folder:** Create a folder named `screenshots` in your GitHub repository. [cite: 80]
+2.  [cite_start]**Upload Screenshot:** Put the image file you have (for example `Screenshot 2026-04-16 130535.png`) into the folder and make sure the name matches the one written in the `README.md` file above. [cite: 80]
+3.  [cite_start]**Account Identity:** Don't forget to replace `YOUR_ACCOUNT_NAME` with your local identity name (such as `release` or `indramahesa`) when running terminal commands. [cite: 81]
